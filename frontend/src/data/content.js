@@ -154,7 +154,7 @@ export const pricing = [
 export const about = {
   heading: "One person. Real systems.",
   paragraphs: [
-    "I'm Seyi Rivera. I build AI-powered systems and automation for businesses that want to spend less time on repetitive work — answering the same questions, chasing the same leads, re-typing the same data. I work independently, so you talk to the person doing the work.",
+    "I'm Seyi Qing. I build AI-powered systems and automation for businesses that want to spend less time on repetitive work — answering the same questions, chasing the same leads, re-typing the same data. I work independently, so you talk to the person doing the work.",
     "Every system I build is custom. I don't resell templates, I don't plug in a \"platform,\" and I don't disappear after launch. If you have a repetitive task in your business that should be automated, that's exactly what I do.",
   ],
   stats: [
@@ -168,14 +168,14 @@ export const contact = {
   heading: "Have a repetitive business task that should be automated? Let's build it.",
   subhead:
     "Tell me what your business is doing manually today. I'll tell you whether it makes sense as an AI system, and what the rough shape of it would be.",
-  // Replace with your real details before deploying.
-  whatsapp: { label: "WhatsApp", value: "+1 555 010 1234", href: "https://wa.me/15550101234" },
-  email: { label: "Email", value: "hello@example.com", href: "mailto:hello@example.com" },
+  // Replace with your real details before deploying. WhatsApp +1 312 487 9790 →
+  whatsapp: { label: "WhatsApp", value: "+1 312 587 9790", href: "https://wa.me/13124879790" },
+  email: { label: "Email", value: "logzmaster.biz@gmail.com", href: "mailto: logzmaster.biz@gmail.com" },
 };
 
 export const footer = {
   note: "Independent AI builder",
-  tagline: "Built with care · No agency, no platform",
+  tagline: "Built with 💙· No agency, no platform",
 };
 
 export const nav = [
