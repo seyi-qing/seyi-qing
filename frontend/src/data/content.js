@@ -154,7 +154,7 @@ export const pricing = [
 export const about = {
   heading: "One person. Real systems.",
   paragraphs: [
-    "I'm Alex Rivera. I build AI-powered systems and automation for businesses that want to spend less time on repetitive work — answering the same questions, chasing the same leads, re-typing the same data. I work independently, so you talk to the person doing the work.",
+    "I'm Seyi Rivera. I build AI-powered systems and automation for businesses that want to spend less time on repetitive work — answering the same questions, chasing the same leads, re-typing the same data. I work independently, so you talk to the person doing the work.",
     "Every system I build is custom. I don't resell templates, I don't plug in a \"platform,\" and I don't disappear after launch. If you have a repetitive task in your business that should be automated, that's exactly what I do.",
   ],
   stats: [
