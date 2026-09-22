@@ -79,7 +79,7 @@ export const about = {
   // Set to a URL (e.g. "/headshot.jpg" placed in frontend/public/) and
   // About.jsx will render it. Leave null to hide the image entirely —
   // an empty/broken image is worse for trust than no image.
-  photoUrl: /headshot.jpg,
+  photoUrl: "/headshot.jpg",
 };
 
 // Improvement #3 (conversion): testimonials. Leave this array empty until
