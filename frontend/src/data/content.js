@@ -14,11 +14,11 @@ export const brand = {
 };
 
 export const hero = {
-  eyebrow: "AI systems for businesses · Available for select projects",
+  eyebrow: "Independent AI builder · Now booking new projects",
   headline:
-    "Building AI systems that quietly run the work your business shouldn't have to do manually.",
+    "Your business already knows what needs fixing. I build the system that fixes it.",
   subhead:
-    "I'm Seyi — an independent AI builder. I design chatbots, voice agents, and automation systems for small and mid-sized businesses that want fewer repetitive tasks, faster responses, and more time to focus on the work that actually matters.",
+    "I'm Seyi. I build chatbots, voice agents, and automation that pick up the slack — the questions you answer twenty times a day, the leads that go cold because nobody followed up fast enough, the forms nobody has time to process. You keep running the business. The system handles the repeats.",
   primaryCta: { label: "Start a project", href: "#contact" },
   secondaryCta: { label: "See what I build", href: "#services" },
   badges: [
@@ -28,19 +28,19 @@ export const hero = {
 };
 
 export const valueProps = [
-  { title: "Less repetitive work", detail: "Stop answering the same questions and re-typing the same responses." },
-  { title: "Faster responses", detail: "Customers and leads get an answer in seconds — even when you're not online." },
-  { title: "More leads handled", detail: "Every website visitor, DM, and missed call gets followed up automatically." },
-  { title: "More time for the business", detail: "You spend time on the work that actually grows the business — not the busywork." },
+  { title: "Fewer repeats", detail: "The tenth time someone asks your hours, price, or availability, a system answers it — not you." },
+  { title: "Nothing falls through", detail: "Every inquiry gets a response, even the one that comes in at midnight on a Saturday." },
+  { title: "Leads don't go cold", detail: "Follow-up happens the moment someone shows interest — not whenever you get around to it." },
+  { title: "Your time back", detail: "Less time on repeat tasks means more time on the parts of the business only you can do." },
 ];
 
 export const services = [
-  { id: "chatbots", name: "AI Chatbots", detail: "A website assistant that answers customer questions, qualifies leads, and hands off the right inquiries to your team — 24/7, in your tone of voice." },
-  { id: "voice-agents", name: "AI Voice Agents", detail: "AI-powered voice systems that can answer incoming calls, handle routine customer interactions, and route the important ones to a human." },
-  { id: "automation", name: "AI Automation", detail: "Automating repetitive workflows so your team spends less time on copy-paste tasks and more time on work that needs a human." },
-  { id: "ai-employees", name: "AI Employees", detail: "AI systems designed to take over a specific repetitive responsibility in your business — for example, intake, follow-up, or first-line support." },
-  { id: "lead-automation", name: "Lead & Appointment Automation", detail: "Capture leads from your website, social, or ads and automatically route them into your calendar or CRM — without manual data entry." },
-  { id: "custom-systems", name: "Custom AI Systems", detail: "A custom AI solution built around a specific workflow in your business — designed end-to-end around how your team actually works." },
+  { id: "chatbots", name: "AI Chatbots", detail: "A chatbot trained on your business, sitting on your website, answering the questions customers ask before they'll pick up the phone — and flagging you the ones that actually need a human." },
+  { id: "voice-agents", name: "AI Voice Agents", detail: "A voice system that picks up the phone when you can't — handles the routine calls, books what it can, and passes anything real straight to you." },
+  { id: "automation", name: "AI Automation", detail: "The repetitive parts of your workflow — the copy-paste, the re-entry, the reminders — running on their own instead of eating your afternoon." },
+  { id: "ai-employees", name: "AI Employees", detail: "A system built to own one specific job in your business — intake, follow-up, first response — the way you'd hand it to a new hire, minus the training curve." },
+  { id: "lead-automation", name: "Lead & Appointment Automation", detail: "Every lead that comes in through your site, ads, or socials lands straight in your calendar or CRM — nobody typing it in by hand." },
+  { id: "custom-systems", name: "Custom AI Systems", detail: "If none of the above quite fits, I build around the actual way your business runs — not a template of how businesses are supposed to run." },
 ];
 
 export const pricing = [
@@ -65,33 +65,23 @@ export const pricing = [
 ];
 
 export const about = {
-  heading: "One person. Real systems.",
+  heading: "Just me. No team, no templates.",
   paragraphs: [
-    "I'm Seyi Qing. I build AI-powered systems and automation for businesses that want to spend less time on repetitive work — answering the same questions, chasing the same leads, re-typing the same data. I work independently, so you talk to the person doing the work.",
-    "Every system I build is custom. I don't resell templates, I don't plug in a \"platform,\" and I don't disappear after launch. If you have a repetitive task in your business that should be automated, that's exactly what I do.",
+    "I'm Seyi Qing. I build the AI systems businesses use to stop doing the same task over and over — answering the same question, chasing the same lead, typing the same thing into a spreadsheet. I work alone, which means the person who builds your system is the person you're talking to.",
+    "Nothing here comes off a shelf. I don't resell a platform with your logo slapped on it, and I don't hand you a system and disappear. If something in your business is repetitive enough that you've thought \"there has to be a better way\" — that's usually something I can build.",
   ],
   stats: [
     { value: "1:1", label: "Direct work" },
     { value: "Custom", label: "No templates" },
     { value: "24/7", label: "Systems that run" },
   ],
-  // Improvement #5 (trust signals): add a photo once you have one.
-  // Set to a URL (e.g. "/headshot.jpg" placed in frontend/public/) and
-  // About.jsx will render it. Leave null to hide the image entirely —
-  // an empty/broken image is worse for trust than no image.
   photoUrl: "/headshot.jpg",
 };
 
-// Improvement #3 (conversion): testimonials. Leave this array empty until
-// you have real client quotes — Testimonials.jsx only renders the section
-// when there's at least one entry, so an empty array simply hides it
-// rather than showing a fake or placeholder quote.
 export const testimonials = [
-  // Example shape once you have a real one:
   // { quote: "Cut our response time from hours to seconds.", name: "Jordan P.", business: "Riverside Dental" },
 ];
 
-// Improvement #3 (conversion): FAQ, addresses common objections up front.
 export const faq = [
   {
     question: "How long does a project take?",
@@ -121,16 +111,16 @@ export const faq = [
 ];
 
 export const contact = {
-  heading: "Have a repetitive business task that should be automated? Let's build it.",
+  heading: "Something in your business running on repeat? Tell me about it.",
   subhead:
-    "Tell me what your business is doing manually today. I'll tell you whether it makes sense as an AI system, and what the rough shape of it would be.",
+    "Tell me what's eating your time right now. I'll tell you honestly whether AI fixes it, and roughly what that would look like.",
   whatsapp: { label: "WhatsApp", value: "+1 312 487 9790", href: "https://wa.me/13124879790" },
   email: { label: "Email", value: "logzmaster.biz@gmail.com", href: "mailto:logzmaster.biz@gmail.com" },
 };
 
 export const footer = {
   note: "Independent AI builder",
-  tagline: "Built with care 💙· No agency, no platform",
+  tagline: "Built with care · No agency, no platform",
 };
 
 export const nav = [
@@ -142,4 +132,3 @@ export const nav = [
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
-               
