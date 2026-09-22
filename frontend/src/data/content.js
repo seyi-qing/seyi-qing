@@ -75,13 +75,23 @@ export const about = {
     { value: "Custom", label: "No templates" },
     { value: "24/7", label: "Systems that run" },
   ],
-  photoUrl: null,
+  // Improvement #5 (trust signals): add a photo once you have one.
+  // Set to a URL (e.g. "/headshot.jpg" placed in frontend/public/) and
+  // About.jsx will render it. Leave null to hide the image entirely —
+  // an empty/broken image is worse for trust than no image.
+  photoUrl: /headshot.jpg,
 };
 
+// Improvement #3 (conversion): testimonials. Leave this array empty until
+// you have real client quotes — Testimonials.jsx only renders the section
+// when there's at least one entry, so an empty array simply hides it
+// rather than showing a fake or placeholder quote.
 export const testimonials = [
+  // Example shape once you have a real one:
   // { quote: "Cut our response time from hours to seconds.", name: "Jordan P.", business: "Riverside Dental" },
 ];
 
+// Improvement #3 (conversion): FAQ, addresses common objections up front.
 export const faq = [
   {
     question: "How long does a project take?",
@@ -132,3 +142,4 @@ export const nav = [
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
+               
