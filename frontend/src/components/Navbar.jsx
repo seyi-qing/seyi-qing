@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react";
 import { brand, nav } from "../data/content.js";
 
-/**
- * Sticky top navigation. Collapses into a hamburger menu below 720px.
- * Closes the mobile menu automatically after a link is tapped so users
- * aren't left staring at an open menu after navigating.
- */
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -16,19 +11,34 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Forces a real scroll-to-top instead of relying on native #hash
+  // anchor scrolling, which can behave inconsistently when the target
+  // element (the header) is itself position: sticky.
+  function goHome(e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setMenuOpen(false);
+  }
+
   return (
     <header className={`navbar ${scrolled ? "navbar--scrolled" : ""}`} id="home">
       <div className="navbar__inner">
-        <a href="#home" className="navbar__logo">
+        <a href="#home" className="navbar__logo" onClick={goHome}>
           {brand.logoText}
         </a>
 
         <nav className={`navbar__links ${menuOpen ? "navbar__links--open" : ""}`}>
-          {nav.map((item) => (
-            <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
-              {item.label}
-            </a>
-          ))}
+          {nav.map((item) =>
+            item.href === "#home" ? (
+              <a key={item.href} href={item.href} onClick={goHome}>
+                {item.label}
+              </a>
+            ) : (
+              <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
+                {item.label}
+              </a>
+            )
+          )}
           <a href="#contact" className="btn btn--small navbar__cta" onClick={() => setMenuOpen(false)}>
             Start a project
           </a>
