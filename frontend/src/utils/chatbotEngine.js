@@ -11,8 +11,8 @@
  * ----------------------------------------------------------------------
  */
 
-export const USE_BACKEND = false;
-export const BACKEND_URL = "http://localhost:8000";
+export const USE_BACKEND = true;
+export const BACKEND_URL = "https://seyi-qing-api.vercel.app";
 
 const INTENTS = [
   { patterns: [/how much.*chatbot/i, /chatbot.*cost/i, /chatbot.*price/i], reply: "The Starter AI Bot Package is $250 to set up, then $69/month for maintenance. It includes a custom-trained website chatbot, lead capture, and FAQ handling, deployed in 2–4 weeks." },
