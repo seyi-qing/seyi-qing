@@ -43,6 +43,33 @@ export const services = [
   { id: "custom-systems", name: "Custom AI Systems", detail: "If none of the above quite fits, I build around the actual way your business runs — not a template of how businesses are supposed to run." },
 ];
 
+export const projects = [
+  {
+    name: "AI Receptionist Chatbot",
+    status: "Live",
+    description:
+      "The chatbot on this page. Trained on my own pricing, services, and FAQ — answers real visitor questions and hands off anything it can't answer to WhatsApp or email.",
+    stack: "React · FastAPI · Claude Sonnet",
+    href: "#chatbot",
+  },
+  {
+    name: "Contact Form Triage",
+    status: "In progress",
+    description:
+      "Every inquiry that comes through the contact form gets automatically read, categorized by urgency, and summarized in one line — so I see what matters before opening the raw message.",
+    stack: "FastAPI · Claude Sonnet",
+    href: null,
+  },
+  {
+    name: "AI Voice Receptionist",
+    status: "Planned",
+    description:
+      "An AI-answered phone line for handling routine calls and booking appointments by voice. Waiting on a telephony provider account before this can go live.",
+    stack: "Twilio · Speech-to-text · Claude",
+    href: null,
+  },
+];
+
 export const pricing = [
   {
     id: "starter", tier: "Starter", name: "Starter AI Bot Package", setupFee: "$250", monthly: "$69",
