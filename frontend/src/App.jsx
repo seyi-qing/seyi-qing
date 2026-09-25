@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import Services from "./components/Services.jsx";
+import Projects from "./components/Projects.jsx";
 import Chatbot from "./components/Chatbot.jsx";
 import Testimonials from "./components/Testimonials.jsx";
 import Pricing from "./components/Pricing.jsx";
@@ -16,6 +17,7 @@ export default function App() {
       <main>
         <Hero />
         <Services />
+        <Projects />
         <Chatbot />
         <Testimonials />
         <Pricing />
