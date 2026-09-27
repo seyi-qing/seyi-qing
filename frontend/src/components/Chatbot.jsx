@@ -8,13 +8,6 @@ const WELCOME_MESSAGE = {
     "Hey — I'm the assistant. I can answer questions about services, pricing, chatbots, voice agents, or automation. What would you like to know?",
 };
 
-/**
- * Live chatbot demo. This is the interactive centerpiece of the page: a
- * working chat widget, not a screenshot of one. Messages are held in
- * component state; replies come from `chatbotEngine.getChatReply`, which
- * can be swapped between local rule-based answers and a real backend
- * without this component changing at all.
- */
 export default function Chatbot() {
   const [messages, setMessages] = useState([WELCOME_MESSAGE]);
   const [input, setInput] = useState("");
@@ -50,6 +43,7 @@ export default function Chatbot() {
     <section id="chatbot" className="section section--muted">
       <div className="section__inner">
         <div className="section__header">
+          <p className="section__eyebrow">Live demo</p>
           <h2>Try the chatbot. Ask it anything.</h2>
           <p>
             This is a real, working preview of how a chatbot I build would handle questions on
