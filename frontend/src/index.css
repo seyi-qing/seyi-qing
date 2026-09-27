@@ -126,19 +126,34 @@ button { font-family: inherit; }
 .hero__badge { display: flex; flex-direction: column; gap: 0.2rem; border-left: 2px solid var(--accent); padding-left: 0.8rem; }
 .hero__badge-label { font-weight: 600; font-size: 0.92rem; }
 .hero__badge-detail { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-on-ink-muted); }
-.hero__visual { display: flex; justify-content: center; }
-.signal-diagram { width: 100%; max-width: 320px; height: auto; }
-.signal-diagram__line { fill: none; stroke: var(--ink-line); stroke-width: 1.5; stroke-dasharray: 6 6; animation: dash-flow 6s linear infinite; }
+.hero__visual { display: flex; justify-content: center; align-items: center; }
+.signal-diagram { width: 100%; max-width: 340px; height: auto; filter: drop-shadow(0 0 28px rgba(51, 209, 182, 0.12)); }
+.signal-diagram__line {
+  fill: none; stroke: rgba(51, 209, 182, 0.35); stroke-width: 1.75;
+  stroke-dasharray: 5 7; animation: dash-flow 5s linear infinite;
+}
 @keyframes dash-flow { to { stroke-dashoffset: -120; } }
-.signal-diagram__node { fill: var(--ink-soft); stroke: var(--ink-line); stroke-width: 1.5; }
-.signal-diagram__node-label { fill: var(--text-on-ink-muted); font-family: var(--font-mono); font-size: 8.5px; }
-.signal-diagram__hub { fill: var(--ink-soft); stroke: var(--accent); stroke-width: 2; }
-.signal-diagram__hub-label { fill: var(--text-on-ink); font-family: var(--font-mono); font-size: 9px; }
+.signal-diagram__node {
+  fill: var(--ink-soft); stroke: rgba(154, 162, 177, 0.55); stroke-width: 1.6;
+}
+.signal-diagram__node-label { fill: var(--text-on-ink-muted); font-family: var(--font-mono); font-size: 9px; }
+.signal-diagram__hub-glow {
+  fill: rgba(51, 209, 182, 0.14); stroke: none;
+  animation: hub-pulse 3.2s ease-in-out infinite;
+}
+@keyframes hub-pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+.signal-diagram__hub {
+  fill: #152028; stroke: var(--accent); stroke-width: 2.5;
+  filter: drop-shadow(0 0 10px rgba(51, 209, 182, 0.45));
+}
+.signal-diagram__hub-label { fill: var(--text-on-ink); font-family: var(--font-mono); font-size: 9.5px; font-weight: 500; }
 @media (max-width: 860px) {
-  .hero__inner { grid-template-columns: 1fr; padding-top: 3rem; }
-  /* Keep diagram below headline/copy on mobile */
-  .hero__copy { order: 0; }
-  .hero__visual { order: 1; justify-content: center; }
+  .hero__inner { grid-template-columns: 1fr; padding-top: 3rem; padding-bottom: 3.5rem; }
+  /* Mobile: hide diagram — headline + CTAs matter more */
+  .hero__visual { display: none; }
 }
 
 /* Sections */
