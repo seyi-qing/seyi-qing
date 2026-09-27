@@ -1,24 +1,26 @@
 import { useState } from "react";
 import { projects } from "../data/content.js";
+import { projectThumbs } from "../data/projectThumbs.js";
 
-/**
- * Build a screenshot URL. Primary: thum.io (reliable, no API key).
- * Fallback chain handled in the component if the image errors.
- */
 function screenshotUrl(url) {
-  // thum.io free public endpoint — returns a real PNG/JPEG of the live page
   return `https://image.thum.io/get/width/720/crop/450/noanimate/${url}`;
 }
 
-function ProjectThumb({ url, name, localImage }) {
-  // stage: "loading" | "ready" | "failed"
-  const [stage, setStage] = useState(localImage || url ? "loading" : "failed");
-  const [src, setSrc] = useState(localImage || (url ? screenshotUrl(url) : null));
+function resolveSrc(thumbKey, url) {
+  if (thumbKey && projectThumbs[thumbKey]) return projectThumbs[thumbKey];
+  if (url) return screenshotUrl(url);
+  return null;
+}
+
+function ProjectThumb({ url, name, thumbKey }) {
+  const local = thumbKey && projectThumbs[thumbKey] ? projectThumbs[thumbKey] : null;
+  const [stage, setStage] = useState(local || url ? "loading" : "failed");
+  const [src, setSrc] = useState(resolveSrc(thumbKey, url));
   const initial = name.charAt(0).toUpperCase();
 
   function handleError() {
-    // If a local image failed, try the remote screenshot once
-    if (localImage && src === localImage && url) {
+    // Local failed → try remote once; remote failed → letter plate
+    if (local && src === local && url) {
       setSrc(screenshotUrl(url));
       setStage("loading");
       return;
@@ -72,7 +74,7 @@ export default function Projects() {
                 key={p.name}
                 className={`project-card project-card--${statusClass}`}
               >
-                <ProjectThumb url={p.url} name={p.name} localImage={p.image} />
+                <ProjectThumb url={p.url} name={p.name} thumbKey={p.thumbKey} />
                 <div className="project-card__body">
                   <div className="project-card__top">
                     <h3>{p.name}</h3>
