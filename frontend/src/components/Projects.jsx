@@ -2,16 +2,31 @@ import { useState } from "react";
 import { projects } from "../data/content.js";
 
 /**
- * Latest Projects section.
- * Thumbnails use WordPress mshots for live screenshots when a project has
- * a public URL. On load failure we fall back to a branded gradient plate
- * so the card never looks broken.
+ * Build a screenshot URL. Primary: thum.io (reliable, no API key).
+ * Fallback chain handled in the component if the image errors.
  */
-function ProjectThumb({ url, name }) {
-  const [failed, setFailed] = useState(false);
+function screenshotUrl(url) {
+  // thum.io free public endpoint — returns a real PNG/JPEG of the live page
+  return `https://image.thum.io/get/width/720/crop/450/noanimate/${url}`;
+}
+
+function ProjectThumb({ url, name, localImage }) {
+  // stage: "loading" | "ready" | "failed"
+  const [stage, setStage] = useState(localImage || url ? "loading" : "failed");
+  const [src, setSrc] = useState(localImage || (url ? screenshotUrl(url) : null));
   const initial = name.charAt(0).toUpperCase();
 
-  if (failed || !url) {
+  function handleError() {
+    // If a local image failed, try the remote screenshot once
+    if (localImage && src === localImage && url) {
+      setSrc(screenshotUrl(url));
+      setStage("loading");
+      return;
+    }
+    setStage("failed");
+  }
+
+  if (stage === "failed" || !src) {
     return (
       <div className="project-card__thumb project-card__thumb--fallback" aria-hidden="true">
         <span className="project-card__thumb-letter">{initial}</span>
@@ -20,14 +35,17 @@ function ProjectThumb({ url, name }) {
   }
 
   return (
-    <div className="project-card__thumb">
+    <div
+      className={`project-card__thumb${stage === "loading" ? " project-card__thumb--loading" : ""}`}
+    >
       <img
-        src={`https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=640&h=400`}
+        src={src}
         alt={`Screenshot of ${name}`}
         loading="lazy"
         decoding="async"
         referrerPolicy="no-referrer"
-        onError={() => setFailed(true)}
+        onLoad={() => setStage("ready")}
+        onError={handleError}
       />
     </div>
   );
@@ -54,7 +72,7 @@ export default function Projects() {
                 key={p.name}
                 className={`project-card project-card--${statusClass}`}
               >
-                <ProjectThumb url={p.url} name={p.name} />
+                <ProjectThumb url={p.url} name={p.name} localImage={p.image} />
                 <div className="project-card__body">
                   <div className="project-card__top">
                     <h3>{p.name}</h3>
