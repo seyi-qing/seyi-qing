@@ -196,7 +196,7 @@ export const contact = {
 
 export const footer = {
   note: "Independent AI builder",
-  tagline: "Built with care · No agency, no platform",
+  tagline: "Built with 💙· No agency, no platform",
 };
 
 export const nav = [
