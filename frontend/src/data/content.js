@@ -2,8 +2,8 @@
  * content.js
  * ----------------------------------------------------------------------
  * Single source of truth for every piece of copy on the site.
- * Edit this file to rebrand or update pricing/services/FAQ — components
- * read from here so you rarely need to touch component code.
+ * Edit this file to rebrand or update pricing/services/FAQ/projects —
+ * components read from here so you rarely need to touch component code.
  * ----------------------------------------------------------------------
  */
 
@@ -41,33 +41,7 @@ export const services = [
   { id: "ai-employees", name: "AI Employees", detail: "A system built to own one specific job in your business — intake, follow-up, first response — the way you'd hand it to a new hire, minus the training curve." },
   { id: "lead-automation", name: "Lead & Appointment Automation", detail: "Every lead that comes in through your site, ads, or socials lands straight in your calendar or CRM — nobody typing it in by hand." },
   { id: "custom-systems", name: "Custom AI Systems", detail: "If none of the above quite fits, I build around the actual way your business runs — not a template of how businesses are supposed to run." },
-];
-
-export const projects = [
-  {
-    name: "AI Receptionist Chatbot",
-    status: "Live",
-    description:
-      "The chatbot on this page. Trained on my own pricing, services, and FAQ — answers real visitor questions and hands off anything it can't answer to WhatsApp or email.",
-    stack: "React · FastAPI · Claude Sonnet",
-    href: "#chatbot",
-  },
-  {
-    name: "Contact Form Triage",
-    status: "In progress",
-    description:
-      "Every inquiry that comes through the contact form gets automatically read, categorized by urgency, and summarized in one line — so I see what matters before opening the raw message.",
-    stack: "FastAPI · Claude Sonnet",
-    href: null,
-  },
-  {
-    name: "AI Voice Receptionist",
-    status: "Planned",
-    description:
-      "An AI-answered phone line for handling routine calls and booking appointments by voice. Waiting on a telephony provider account before this can go live.",
-    stack: "Twilio · Speech-to-text · Claude",
-    href: null,
-  },
+  { id: "custom-software", name: "Custom Software", detail: "Full websites and web apps outside the AI-automation lane — a bank demo, a school platform, a church site. If it just needs to be built well, not necessarily automated, that's still work I take on." },
 ];
 
 export const pricing = [
@@ -137,6 +111,71 @@ export const faq = [
   },
 ];
 
+/**
+ * Projects shown in the "Latest Projects" section. Each `url` (when
+ * present) is used to render a live screenshot thumbnail automatically —
+ * see Projects.jsx. Keep status honest: "Live" means it's actually
+ * deployed and reachable at that URL right now.
+ */
+export const projects = [
+  {
+    name: "AI Receptionist Chatbot",
+    status: "Live",
+    description: "The chatbot on this page. Trained on my own pricing, services, and FAQ — answers real visitor questions and hands off anything it can't answer to WhatsApp or email.",
+    stack: "React · FastAPI · Claude Sonnet",
+    href: "#chatbot",
+    url: null,
+  },
+  {
+    name: "Church Platform",
+    status: "Live",
+    description: "An all-in-one platform for churches — website, membership and service management, online giving, livestream, and a companion mobile app, with a few AI-assisted pastoral tools built in.",
+    stack: "FastAPI · PostgreSQL · Next.js · Expo · Stripe",
+    href: "https://church-platform-mu.vercel.app",
+    url: "https://church-platform-mu.vercel.app",
+  },
+  {
+    name: "Force Schools (School ERP)",
+    status: "Live",
+    description: "A school management system with separate portals for admins, teachers, students, and parents — attendance, exam scoring, fee collection, payroll, and a public result checker.",
+    stack: "Next.js · Prisma · TypeScript · Tailwind",
+    href: "https://qing-school.vercel.app",
+    url: "https://qing-school.vercel.app",
+  },
+  {
+    name: "ModernBank (prototype)",
+    status: "Live",
+    description: "An educational digital-banking prototype — not a real bank or licensed financial product, but a full-stack build showing account, transaction, and admin flows end-to-end.",
+    stack: "Next.js · FastAPI",
+    href: "https://modern-bank-silk.vercel.app",
+    url: "https://modern-bank-silk.vercel.app",
+  },
+  {
+    name: "NCOF Platform",
+    status: "Live",
+    description: "A membership platform for a nonprofit association — member records, dues and payments through Paystack and Flutterwave, and secret-ballot elections with a verifiable audit trail.",
+    stack: "FastAPI · PostgreSQL · Next.js",
+    href: "https://ncof.vercel.app",
+    url: "https://ncof.vercel.app",
+  },
+  {
+    name: "Contact Form Triage",
+    status: "In progress",
+    description: "Every inquiry that comes through the contact form gets automatically read, categorized by urgency, and summarized in one line — so I see what matters before opening the raw message.",
+    stack: "FastAPI · Claude Sonnet",
+    href: null,
+    url: null,
+  },
+  {
+    name: "AI Voice Receptionist",
+    status: "Planned",
+    description: "An AI-answered phone line for handling routine calls and booking appointments by voice. Waiting on a telephony provider account before this can go live.",
+    stack: "Twilio · Speech-to-text · Claude",
+    href: null,
+    url: null,
+  },
+];
+
 export const contact = {
   heading: "Something in your business running on repeat? Tell me about it.",
   subhead:
@@ -147,12 +186,13 @@ export const contact = {
 
 export const footer = {
   note: "Independent AI builder",
-  tagline: "Built with care 💙· No agency, no platform",
+  tagline: "Built with care · No agency, no platform",
 };
 
 export const nav = [
   { label: "Home", href: "#home" },
   { label: "Services", href: "#services" },
+  { label: "Projects", href: "#projects" },
   { label: "Chatbot", href: "#chatbot" },
   { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
