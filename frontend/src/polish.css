@@ -68,6 +68,30 @@
     var(--ink) !important;
 }
 
+/* Mobile hero: put diagram under copy, shrink it so headline leads */
+@media (max-width: 860px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    padding-top: 2.5rem;
+    padding-bottom: 3.5rem;
+    gap: 2rem;
+  }
+  .hero__visual {
+    order: 1; /* after copy (default order 0) */
+    justify-content: center;
+  }
+  .hero__copy {
+    order: 0;
+  }
+  .signal-diagram {
+    max-width: 220px;
+    opacity: 0.92;
+  }
+  .hero__headline {
+    max-width: none;
+  }
+}
+
 .faq-item { border-bottom: 1px solid var(--paper-line); padding: 1.1rem 0; }
 .faq-item:first-child { border-top: 1px solid var(--paper-line); }
 .faq-item__question {
