@@ -13,7 +13,10 @@ export default function Hero() {
         <div className="hero__copy">
           <p className="hero__eyebrow">{hero.eyebrow}</p>
           <h1 className="hero__headline">{hero.headline}</h1>
-          <p className="hero__subhead">{hero.subhead}</p>
+          <p className="hero__subhead hero__subhead--desktop">{hero.subhead}</p>
+          <p className="hero__subhead hero__subhead--mobile">
+            {hero.subheadMobile || hero.subhead}
+          </p>
 
           <div className="hero__ctas">
             <a href={hero.primaryCta.href} className="btn btn--primary">
