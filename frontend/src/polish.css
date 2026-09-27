@@ -68,7 +68,8 @@
     var(--ink) !important;
 }
 
-/* Mobile hero: diagram hidden — copy + CTAs lead */
+/* Mobile hero: diagram hidden — shorter subhead */
+.hero__subhead--mobile { display: none; }
 @media (max-width: 860px) {
   .hero__inner {
     grid-template-columns: 1fr;
@@ -81,6 +82,8 @@
   .hero__headline {
     max-width: none;
   }
+  .hero__subhead--desktop { display: none; }
+  .hero__subhead--mobile { display: block; }
 }
 
 .faq-item { border-bottom: 1px solid var(--paper-line); padding: 1.1rem 0; }

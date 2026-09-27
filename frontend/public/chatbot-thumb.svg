@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 450" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="720" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1b212c"/>
+      <stop offset="1" stop-color="#12151c"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="450" fill="url(#bg)"/>
+  <rect x="140" y="48" width="440" height="354" rx="20" fill="#1b212c" stroke="#2a3140" stroke-width="2"/>
+  <rect x="140" y="48" width="440" height="56" rx="20" fill="#152028"/>
+  <rect x="140" y="84" width="440" height="20" fill="#152028"/>
+  <circle cx="176" cy="76" r="14" fill="#33d1b6"/>
+  <text x="176" y="81" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#06211c" text-anchor="middle">S</text>
+  <text x="200" y="72" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#f2f1eb">Seyi Qing</text>
+  <text x="200" y="88" font-family="ui-monospace,monospace" font-size="10" fill="#9aa2b1">Online · answers in seconds</text>
+  <rect x="168" y="128" width="260" height="64" rx="12" fill="#12151c"/>
+  <text x="184" y="152" font-family="system-ui,sans-serif" font-size="13" fill="#f2f1eb">What would you like to know?</text>
+  <text x="184" y="172" font-family="system-ui,sans-serif" font-size="13" fill="#9aa2b1">Pricing, services, or how it works…</text>
+  <rect x="352" y="212" width="200" height="40" rx="12" fill="#33d1b6"/>
+  <text x="372" y="237" font-family="system-ui,sans-serif" font-size="13" font-weight="500" fill="#06211c">What does Starter include?</text>
+  <rect x="168" y="272" width="300" height="56" rx="12" fill="#12151c"/>
+  <text x="184" y="296" font-family="system-ui,sans-serif" font-size="13" fill="#f2f1eb">A site chatbot trained on your</text>
+  <text x="184" y="314" font-family="system-ui,sans-serif" font-size="13" fill="#f2f1eb">business — $250 setup + $69/mo.</text>
+  <rect x="168" y="352" width="340" height="32" rx="8" fill="#12151c" stroke="#2a3140"/>
+  <text x="182" y="373" font-family="system-ui,sans-serif" font-size="12" fill="#656a5f">Ask anything…</text>
+  <rect x="520" y="352" width="36" height="32" rx="8" fill="#33d1b6"/>
+</svg>
