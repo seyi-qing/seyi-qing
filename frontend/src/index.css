@@ -267,8 +267,10 @@ button {
   }
 
   .navbar__links--open {
-    max-height: 400px;
-  }
+  max-height: calc(100vh - 60px);
+  overflow-y: auto;
+  box-shadow: 0 16px 24px rgba(0, 0, 0, 0.35);
+}
 
   .navbar__links a {
     width: 100%;
