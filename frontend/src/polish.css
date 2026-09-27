@@ -68,7 +68,7 @@
     var(--ink) !important;
 }
 
-/* Mobile hero: put diagram under copy, shrink it so headline leads */
+/* Mobile hero: diagram stays under copy (never above headline) */
 @media (max-width: 860px) {
   .hero__inner {
     grid-template-columns: 1fr;
@@ -76,12 +76,12 @@
     padding-bottom: 3.5rem;
     gap: 2rem;
   }
+  .hero__copy {
+    order: 0;
+  }
   .hero__visual {
     order: 1;
     justify-content: center;
-  }
-  .hero__copy {
-    order: 0;
   }
   .signal-diagram {
     max-width: 220px;
@@ -100,7 +100,7 @@
 }
 .faq-item__question::-webkit-details-marker { display: none; }
 .faq-item__question::after { content: "+"; font-family: var(--font-mono); font-size: 1.2rem; color: var(--accent-strong); flex-shrink: 0; }
-.faq-item[open] .faq-item__question::after { content: "−"; }
+.faq-item[open] .faq-item__question::after { content: "\u2212"; }
 .faq-item__answer { color: var(--text-on-paper-muted); margin: 0.75rem 0 0.25rem; max-width: 58ch; }
 
 .services-list__item { transition: background 0.2s ease; }
@@ -165,6 +165,7 @@
 }
 .project-card__link:hover { text-decoration: underline; }
 
+/* Mobile menu backdrop so content behind dims */
 @media (max-width: 760px) {
   .navbar__links--open {
     animation: menu-in 0.22s ease;

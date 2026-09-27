@@ -1,27 +1,30 @@
 import { useState } from "react";
 import { projects } from "../data/content.js";
-import { projectThumbs } from "../data/projectThumbs.js";
 
-function screenshotUrl(url) {
+/**
+ * Live screenshots via WordPress mshots (primary) with thum.io as a
+ * non-blocking fallback. Images load lazily; a letter plate shows if both fail.
+ */
+function mshotUrl(url) {
+  // mshots expects the target URL unencoded in the path
+  return `https://s0.wp.com/mshots/v1/${url}?w=720`;
+}
+
+function thumUrl(url) {
   return `https://image.thum.io/get/width/720/crop/450/noanimate/${url}`;
 }
 
-function resolveSrc(thumbKey, url) {
-  if (thumbKey && projectThumbs[thumbKey]) return projectThumbs[thumbKey];
-  if (url) return screenshotUrl(url);
-  return null;
-}
-
-function ProjectThumb({ url, name, thumbKey }) {
-  const local = thumbKey && projectThumbs[thumbKey] ? projectThumbs[thumbKey] : null;
-  const [stage, setStage] = useState(local || url ? "loading" : "failed");
-  const [src, setSrc] = useState(resolveSrc(thumbKey, url));
+function ProjectThumb({ url, name }) {
+  const [stage, setStage] = useState(url ? "loading" : "failed");
+  // Prefer mshots live capture; fall back to thum.io once on error
+  const [src, setSrc] = useState(url ? mshotUrl(url) : null);
+  const [triedThum, setTriedThum] = useState(false);
   const initial = name.charAt(0).toUpperCase();
 
   function handleError() {
-    // Local failed → try remote once; remote failed → letter plate
-    if (local && src === local && url) {
-      setSrc(screenshotUrl(url));
+    if (url && !triedThum) {
+      setTriedThum(true);
+      setSrc(thumUrl(url));
       setStage("loading");
       return;
     }
@@ -74,7 +77,7 @@ export default function Projects() {
                 key={p.name}
                 className={`project-card project-card--${statusClass}`}
               >
-                <ProjectThumb url={p.url} name={p.name} thumbKey={p.thumbKey} />
+                <ProjectThumb url={p.url} name={p.name} />
                 <div className="project-card__body">
                   <div className="project-card__top">
                     <h3>{p.name}</h3>

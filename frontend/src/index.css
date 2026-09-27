@@ -136,7 +136,9 @@ button { font-family: inherit; }
 .signal-diagram__hub-label { fill: var(--text-on-ink); font-family: var(--font-mono); font-size: 9px; }
 @media (max-width: 860px) {
   .hero__inner { grid-template-columns: 1fr; padding-top: 3rem; }
-  .hero__visual { order: -1; }
+  /* Keep diagram below headline/copy on mobile */
+  .hero__copy { order: 0; }
+  .hero__visual { order: 1; justify-content: center; }
 }
 
 /* Sections */
