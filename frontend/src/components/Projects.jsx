@@ -43,9 +43,7 @@ export default function Projects() {
                 </div>
                 <p className="project-card__description">{p.description}</p>
                 <p className="project-card__stack">{p.stack}</p>
-                {p.href && (
-                  
-                    href={p.href}
+                {p.href && (href={p.href}
                     className="project-card__link"
                     {...(p.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}
                   >
@@ -59,4 +57,4 @@ export default function Projects() {
       </div>
     </section>
   );
-}
+                                                              }
