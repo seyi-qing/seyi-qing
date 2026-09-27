@@ -77,7 +77,7 @@
     gap: 2rem;
   }
   .hero__visual {
-    order: 1; /* after copy (default order 0) */
+    order: 1;
     justify-content: center;
   }
   .hero__copy {
@@ -105,3 +105,72 @@
 
 .services-list__item { transition: background 0.2s ease; }
 .services-list__item:hover { background: var(--paper-soft); }
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  background: var(--accent);
+  color: #06211c;
+  padding: 0.55rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+::selection {
+  background: rgba(51, 209, 182, 0.28);
+  color: var(--text-on-paper);
+}
+
+/* Honest status chips on project cards */
+.project-card__status {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.5rem;
+  border-radius: 999px;
+  background: var(--paper-soft);
+  color: var(--text-on-paper-muted);
+  white-space: nowrap;
+}
+.project-card--live .project-card__status,
+.project-card--live-demo .project-card__status {
+  background: rgba(51, 209, 182, 0.16);
+  color: #0b6e5e;
+}
+.project-card--in-progress .project-card__status,
+.project-card--building .project-card__status {
+  background: rgba(242, 167, 59, 0.18);
+  color: #8a5a10;
+}
+.project-card--concept .project-card__status,
+.project-card--planned .project-card__status {
+  background: rgba(18, 21, 28, 0.08);
+  color: var(--text-on-paper-muted);
+}
+
+.btn:active { transform: translateY(0); }
+.project-card__link {
+  margin-top: auto;
+  font-weight: 600;
+  color: var(--accent-strong);
+  text-decoration: none;
+}
+.project-card__link:hover { text-decoration: underline; }
+
+@media (max-width: 760px) {
+  .navbar__links--open {
+    animation: menu-in 0.22s ease;
+  }
+}
+@keyframes menu-in {
+  from { opacity: 0.6; }
+  to { opacity: 1; }
+}

@@ -13,8 +13,11 @@ import Footer from "./components/Footer.jsx";
 export default function App() {
   return (
     <>
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
       <Navbar />
-      <main>
+      <main id="main">
         <Hero />
         <Services />
         <Projects />
