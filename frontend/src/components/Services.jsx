@@ -1,15 +1,11 @@
 import { valueProps, services } from "../data/content.js";
 
-/**
- * Combines the "what I do" value props with the services list. Kept in
- * one component/section because they read as one continuous idea on the
- * page ("here's the problem" → "here's what I build to solve it").
- */
 export default function Services() {
   return (
     <section id="services" className="section">
       <div className="section__inner">
         <div className="section__header">
+          <p className="section__eyebrow">What I do</p>
           <h2>I help businesses reduce repetitive work with AI</h2>
           <p>
             Most businesses don't need a complex "AI transformation." They need the boring stuff
