@@ -11,9 +11,17 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Forces a real scroll-to-top instead of relying on native #hash
-  // anchor scrolling, which can behave inconsistently when the target
-  // element (the header) is itself position: sticky.
+  // Lock body scroll while the mobile menu is open, so the page behind
+  // it can't scroll independently and visually collide with the menu
+  // (this was the cause of "Contact" appearing to bleed into the
+  // Contact form below it).
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   function goHome(e) {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
