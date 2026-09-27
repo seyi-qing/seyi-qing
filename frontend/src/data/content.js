@@ -19,6 +19,8 @@ export const hero = {
     "Your business already knows what needs fixing. I build the system that fixes it.",
   subhead:
     "I'm Seyi. I build chatbots, voice agents, and automation that pick up the slack — the questions you answer twenty times a day, the leads that go cold because nobody followed up fast enough, the forms nobody has time to process. You keep running the business. The system handles the repeats.",
+  subheadMobile:
+    "I'm Seyi. I build chatbots, voice agents, and automation that handle the repeats — so you can run the business.",
   primaryCta: { label: "Start a project", href: "#contact" },
   secondaryCta: { label: "See what I build", href: "#services" },
   badges: [
@@ -80,6 +82,8 @@ export const about = {
 };
 
 export const testimonials = [
+  // Add real quotes only — section switches from the proof strip automatically.
+  // Example:
   // { quote: "Cut our response time from hours to seconds.", name: "Jordan P.", business: "Riverside Dental" },
 ];
 
@@ -112,8 +116,8 @@ export const faq = [
 ];
 
 /**
- * Projects. `thumbKey` maps to a local JPEG in projectThumbs.js (instant,
- * no third-party). `url` is still used as a remote screenshot fallback.
+ * Projects. `localThumb` = static asset in /public.
+ * `url` drives live mshots screenshots when set.
  */
 export const projects = [
   {
@@ -123,6 +127,7 @@ export const projects = [
     stack: "React · FastAPI · Claude Sonnet",
     href: "#chatbot",
     url: null,
+    localThumb: "/chatbot-thumb.svg",
     thumbKey: null,
   },
   {
