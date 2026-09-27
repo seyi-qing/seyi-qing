@@ -1,15 +1,11 @@
 import { pricing } from "../data/content.js";
 
-/**
- * Three pricing tiers. The "highlight" flag on the Medium tier in
- * content.js drives the visual emphasis — change the data, not this
- * component, to move the highlight to a different tier.
- */
 export default function Pricing() {
   return (
     <section id="pricing" className="section">
       <div className="section__inner">
         <div className="section__header">
+          <p className="section__eyebrow">Pricing</p>
           <h2>Three packages. One-time setup + monthly maintenance.</h2>
           <p>
             Pick the package that fits your business today. Every plan includes the setup,
