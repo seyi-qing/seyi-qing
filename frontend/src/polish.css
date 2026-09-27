@@ -15,12 +15,42 @@
   font-family: var(--font-display); font-size: 2.75rem; font-weight: 700;
   color: var(--accent); opacity: 0.85; letter-spacing: -0.02em;
 }
+.project-card__thumb--loading {
+  background: linear-gradient(110deg, var(--paper-soft) 30%, var(--paper-line) 50%, var(--paper-soft) 70%);
+  background-size: 200% 100%;
+  animation: thumb-shimmer 1.2s ease-in-out infinite;
+}
+@keyframes thumb-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
 .project-card__body { padding: 1.5rem 1.6rem 1.75rem; display: flex; flex-direction: column; gap: 0.55rem; flex: 1; }
 @media (max-width: 1000px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .projects-grid { grid-template-columns: 1fr; } }
 
-.navbar__toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; padding: 0.5rem; cursor: pointer; width: 40px; height: 40px; position: relative; z-index: 60; }
-.navbar__toggle span { display: block; width: 22px; height: 2px; background: var(--text-on-ink); border-radius: 1px; transition: transform 0.22s ease, opacity 0.22s ease; transform-origin: center; }
+/* Hamburger: only override animation bits — never force display:none here */
+.navbar__toggle {
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  z-index: 60;
+}
+.navbar__toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text-on-ink);
+  border-radius: 1px;
+  transition: transform 0.22s ease, opacity 0.22s ease;
+  transform-origin: center;
+}
 .navbar__toggle--open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .navbar__toggle--open span:nth-child(2) { opacity: 0; }
 .navbar__toggle--open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
