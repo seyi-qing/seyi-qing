@@ -1,31 +1,58 @@
-import { testimonials } from "../data/content.js";
+import { testimonials, projects } from "../data/content.js";
 
 /**
- * Social proof section. Deliberately renders nothing when `testimonials`
- * in content.js is empty — a site with zero real clients showing fake or
- * placeholder quotes would be misleading. Add real quotes to content.js
- * and this section appears automatically; no code changes needed.
+ * Social proof. Real client quotes when available; otherwise an honest
+ * "who this is built for" strip derived from shipped projects — never fake quotes.
  */
+const proofFromWork = [
+  { label: "Churches", detail: "Membership, giving, livestream" },
+  { label: "Schools", detail: "ERP, portals, results" },
+  { label: "Nonprofits", detail: "Dues, elections, members" },
+  { label: "Service businesses", detail: "Chatbots & automation" },
+];
+
 export default function Testimonials() {
-  if (!testimonials || testimonials.length === 0) return null;
+  const hasQuotes = testimonials && testimonials.length > 0;
+  const liveCount = projects.filter(
+    (p) => p.status === "Live" && p.url
+  ).length;
 
   return (
     <section id="testimonials" className="section section--muted">
       <div className="section__inner">
         <div className="section__header">
-          <h2>What clients say</h2>
+          <p className="section__eyebrow">Proof</p>
+          <h2>{hasQuotes ? "What clients say" : "Built for real operations"}</h2>
+          {!hasQuotes && (
+            <p>
+              Live systems across churches, schools, nonprofits, and service
+              businesses — not demos. {liveCount > 0 ? `${liveCount} public builds you can open.` : ""}
+            </p>
+          )}
         </div>
-        <ul className="testimonials-grid">
-          {testimonials.map((t, i) => (
-            <li key={i} className="testimonial-card">
-              <p className="testimonial-card__quote">"{t.quote}"</p>
-              <p className="testimonial-card__attribution">
-                {t.name}
-                {t.business ? ` · ${t.business}` : ""}
-              </p>
-            </li>
-          ))}
-        </ul>
+
+        {hasQuotes ? (
+          <ul className="testimonials-grid">
+            {testimonials.map((t, i) => (
+              <li key={i} className="testimonial-card">
+                <p className="testimonial-card__quote">"{t.quote}"</p>
+                <p className="testimonial-card__attribution">
+                  {t.name}
+                  {t.business ? ` · ${t.business}` : ""}
+                </p>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <ul className="proof-grid">
+            {proofFromWork.map((item) => (
+              <li key={item.label} className="proof-card">
+                <span className="proof-card__label">{item.label}</span>
+                <span className="proof-card__detail">{item.detail}</span>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </section>
   );

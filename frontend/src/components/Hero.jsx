@@ -71,6 +71,7 @@ function SignalDiagram() {
         </g>
       ))}
       <g transform={`translate(${hub.x}, ${hub.y})`}>
+        <circle r="50" className="signal-diagram__hub-glow" />
         <circle r="38" className="signal-diagram__hub" />
         <text textAnchor="middle" dy="5" className="signal-diagram__hub-label">
           Your system
