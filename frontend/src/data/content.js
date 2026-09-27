@@ -112,10 +112,8 @@ export const faq = [
 ];
 
 /**
- * Projects shown in the "Latest Projects" section. Each `url` (when
- * present) is used to render a live screenshot thumbnail automatically —
- * see Projects.jsx. Keep status honest: "Live" means it's actually
- * deployed and reachable at that URL right now.
+ * Projects. `thumbKey` maps to a local JPEG in projectThumbs.js (instant,
+ * no third-party). `url` is still used as a remote screenshot fallback.
  */
 export const projects = [
   {
@@ -125,6 +123,7 @@ export const projects = [
     stack: "React · FastAPI · Claude Sonnet",
     href: "#chatbot",
     url: null,
+    thumbKey: null,
   },
   {
     name: "Church Platform",
@@ -133,6 +132,7 @@ export const projects = [
     stack: "FastAPI · PostgreSQL · Next.js · Expo · Stripe",
     href: "https://church-platform-mu.vercel.app",
     url: "https://church-platform-mu.vercel.app",
+    thumbKey: "church",
   },
   {
     name: "Force Schools (School ERP)",
@@ -141,6 +141,7 @@ export const projects = [
     stack: "Next.js · Prisma · TypeScript · Tailwind",
     href: "https://qing-school.vercel.app",
     url: "https://qing-school.vercel.app",
+    thumbKey: "school",
   },
   {
     name: "ModernBank (prototype)",
@@ -149,6 +150,7 @@ export const projects = [
     stack: "Next.js · FastAPI",
     href: "https://modern-bank-silk.vercel.app",
     url: "https://modern-bank-silk.vercel.app",
+    thumbKey: "modernbank",
   },
   {
     name: "NCOF Platform",
@@ -157,6 +159,7 @@ export const projects = [
     stack: "FastAPI · PostgreSQL · Next.js",
     href: "https://ncof.vercel.app",
     url: "https://ncof.vercel.app",
+    thumbKey: "ncof",
   },
   {
     name: "Contact Form Triage",
@@ -165,6 +168,7 @@ export const projects = [
     stack: "FastAPI · Claude Sonnet",
     href: null,
     url: null,
+    thumbKey: null,
   },
   {
     name: "AI Voice Receptionist",
@@ -173,6 +177,7 @@ export const projects = [
     stack: "Twilio · Speech-to-text · Claude",
     href: null,
     url: null,
+    thumbKey: null,
   },
 ];
 
