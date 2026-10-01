@@ -279,3 +279,178 @@
 }
 
 .section__header p { max-width: 54ch; }
+
+/* ===== STUNNING UPGRADES ===== */
+
+/* Project thumb enhancements */
+.project-card__thumb--fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(51, 209, 182, 0.28), transparent 55%),
+    radial-gradient(ellipse at 80% 80%, rgba(242, 167, 59, 0.18), transparent 50%),
+    linear-gradient(145deg, #1a2030, #0f131a);
+}
+.project-card__thumb-name {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-on-ink-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* Mobile menu — bulletproof open/close */
+@media (max-width: 760px) {
+  .navbar {
+    z-index: 100;
+  }
+  .navbar__toggle {
+    display: flex !important;
+    z-index: 110;
+  }
+  .navbar__links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100dvh;
+    max-height: none !important;
+    background: rgba(12, 14, 20, 0.98) !important;
+    backdrop-filter: blur(16px);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 5rem 1.75rem 2rem !important;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s;
+    z-index: 105;
+    overflow-y: auto;
+    border: none;
+  }
+  .navbar__links--open {
+    opacity: 1 !important;
+    visibility: visible;
+    transform: translateY(0);
+    box-shadow: none;
+  }
+  .navbar__links a {
+    width: 100%;
+    padding: 1rem 0.5rem;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: var(--text-on-ink);
+    font-size: 1.15rem;
+    font-weight: 500;
+    text-align: left;
+  }
+  .navbar__links a:hover,
+  .navbar__links a:focus {
+    color: var(--accent);
+  }
+  .navbar__cta {
+    margin: 1.5rem 0 0 !important;
+    width: 100% !important;
+    justify-content: center;
+    padding: 1rem !important;
+    font-size: 1rem !important;
+    background: var(--accent) !important;
+    color: #06211c !important;
+    border-radius: var(--radius-sm);
+  }
+  /* Prevent body scroll when open */
+  body.menu-open {
+    overflow: hidden;
+    touch-action: none;
+  }
+}
+
+/* Stronger visual hierarchy */
+.hero__headline {
+  background: linear-gradient(135deg, #f2f1eb 0%, #c8d0dc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Accent glow on primary buttons */
+.btn--primary {
+  box-shadow: 0 0 0 0 rgba(51, 209, 182, 0.4);
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.25s ease;
+}
+.btn--primary:hover {
+  box-shadow: 0 8px 24px rgba(51, 209, 182, 0.35);
+}
+
+/* Section separators with subtle texture */
+.section {
+  position: relative;
+}
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, var(--max-width));
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--paper-line), transparent);
+  opacity: 0.6;
+}
+.section:first-of-type::before,
+.hero + .section::before {
+  display: none;
+}
+
+/* Pricing highlight card — premium feel */
+.pricing-card--highlight {
+  position: relative;
+  overflow: hidden;
+}
+.pricing-card--highlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(51, 209, 182, 0.15), transparent 60%);
+  pointer-events: none;
+}
+
+/* Chat widget depth */
+.chat-widget {
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(51, 209, 182, 0.08);
+}
+
+/* Smoother project card hover */
+.project-card {
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease;
+}
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(18, 21, 28, 0.12);
+}
+
+/* Focus ring refinement */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Reduced motion safety */
+@media (prefers-reduced-motion: reduce) {
+  .project-card:hover,
+  .pricing-card:hover,
+  .btn--primary:hover {
+    transform: none;
+  }
+  .navbar__links {
+    transition: none;
+  }
+}
