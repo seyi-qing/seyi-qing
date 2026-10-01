@@ -1,32 +1,42 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { projects } from "../data/content.js";
 
 /**
- * Live screenshots via WordPress mshots (primary) with thum.io as a
- * non-blocking fallback. Images load lazily; a letter plate shows if both fail.
- * Projects may also set `localThumb` for a static asset (e.g. chatbot mock).
+ * Project thumbnails with layered fallbacks:
+ * 1. localThumb (static asset)
+ * 2. WordPress mshots (live screenshot)
+ * 3. thum.io fallback
+ * 4. Elegant letter-plate with gradient
  */
 function mshotUrl(url) {
-  return `https://s0.wp.com/mshots/v1/${url}?w=720`;
+  try {
+    const encoded = encodeURIComponent(url);
+    return `https://s0.wp.com/mshots/v1/${encoded}?w=800&h=500`;
+  } catch {
+    return null;
+  }
 }
 
 function thumUrl(url) {
-  return `https://image.thum.io/get/width/720/crop/450/noanimate/${url}`;
+  return `https://image.thum.io/get/width/800/crop/500/noanimate/${url}`;
 }
 
 function ProjectThumb({ url, name, localThumb }) {
-  if (localThumb) {
-    return (
-      <div className="project-card__thumb">
-        <img src={localThumb} alt={`Preview of ${name}`} loading="lazy" decoding="async" />
-      </div>
-    );
-  }
-
-  const [stage, setStage] = useState(url ? "loading" : "failed");
-  const [src, setSrc] = useState(url ? mshotUrl(url) : null);
-  const [triedThum, setTriedThum] = useState(false);
   const initial = name.charAt(0).toUpperCase();
+  const [stage, setStage] = useState(localThumb ? "ready" : url ? "loading" : "failed");
+  const [src, setSrc] = useState(localThumb || (url ? mshotUrl(url) : null));
+  const [triedThum, setTriedThum] = useState(false);
+
+  // Prefetch / timeout for slow screenshot services
+  useEffect(() => {
+    if (stage !== "loading" || !src) return;
+    const timer = setTimeout(() => {
+      if (stage === "loading") {
+        handleError();
+      }
+    }, 8000);
+    return () => clearTimeout(timer);
+  }, [stage, src]);
 
   function handleError() {
     if (url && !triedThum) {
@@ -42,6 +52,7 @@ function ProjectThumb({ url, name, localThumb }) {
     return (
       <div className="project-card__thumb project-card__thumb--fallback" aria-hidden="true">
         <span className="project-card__thumb-letter">{initial}</span>
+        <span className="project-card__thumb-name">{name.split(" ")[0]}</span>
       </div>
     );
   }
