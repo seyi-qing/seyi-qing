@@ -11,13 +11,15 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll while the mobile menu is open so the page behind
+  // Lock body scroll + class while the mobile menu is open so the page behind
   // cannot scroll and collide with the overlay menu.
   useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = menuOpen ? "hidden" : "";
+    document.body.classList.toggle("menu-open", menuOpen);
     return () => {
       document.body.style.overflow = prev;
+      document.body.classList.remove("menu-open");
     };
   }, [menuOpen]);
 
